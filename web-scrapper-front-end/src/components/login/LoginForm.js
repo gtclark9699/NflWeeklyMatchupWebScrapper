@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import '../../App.css'
 import { useSignIn } from 'react-auth-kit';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 
 function LoginForm() {
 
     const signIn = useSignIn();
     const [formData, setFormData] = useState({email: '', password: ''})
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     // const onSubmit =  async (values) => {
     //     console.log("Try")
@@ -44,10 +44,7 @@ function LoginForm() {
         console.log(formData.email)
         console.log(formData.password)
 
-        axios.post("http://localhost:5000/api/login", formData,
-            {
-                'content-type': 'application/json',
-            })
+        axios.post("http://127.0.0.1:5000/api/login", formData)
             .then((res) => {
                 if (res.status === 200) {
                     console.log(res.data.token)

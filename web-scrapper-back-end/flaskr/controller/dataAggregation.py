@@ -1,15 +1,10 @@
-from app import app
-
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium import webdriver 
 from selenium.webdriver.chrome.options import Options
-from flask_cors import CORS
+from controller import dataAggregationBluePrint
 
-CORS(app)
-
-
-@app.route('/matchups/<year>/<week>', methods=['GET'])
+@dataAggregationBluePrint.route('/matchups/<year>/<week>', methods=['GET'])
 def getMatchUps(year, week):
     url = "https://www.nfl.com/schedules/" + year + "/REG" + week
 
